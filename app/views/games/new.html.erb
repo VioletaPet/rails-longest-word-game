@@ -1,0 +1,12 @@
+<div class="col-6">
+  <h1>New game</h1>
+  <p><%= @randomletters.join(" ") %></p>
+
+  <form action="/score" method="post" data-turbo="false">
+    <label for="userinput">What is the longest word you can find?</label>
+    <input type="text" name="longestword" id="userinput" value="<%= params[:longestword] %>">
+    <button>Play</button>
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  </form>
+  <%= link_to 'See result', score_path %>
+</div>
